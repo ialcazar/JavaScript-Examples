@@ -1,15 +1,16 @@
 var params;
 function concatenate(parameters){
     var result = "";
-
-    params = parameters || [ ];
-
+    params = isArray(parameters)?parameters:[ ];
+    
     if(hasElements()){
         result = createString();
     }  
     return result;
 }
-
+function isArray(anArray){
+    return (anArray && typeof(anArray.push) === 'function' && typeof(anArray.pop) === 'function' && typeof(anArray.shift) === 'function');
+}
 function hasElements(){
     return params.length>0;
 }
@@ -30,6 +31,12 @@ function isLastParam(p1){
 
 
 // TEST
+console.group("Given anything as param")
+    console.assert("" == concatenate(3),"When param is a integer, Then returns empty String");
+    console.assert("" == concatenate(3.2),"When param is a float, Then returns empty String");
+    console.assert("" == concatenate("hola"),"When param is a String, Then returns empty String");
+    console.assert("" == concatenate(function(){}),"When param is a Function, Then returns empty String");
+console.groupEnd();
 console.group("Given an empty param");
     console.assert("" === concatenate(),"Then returns empty String");
 console.groupEnd();
@@ -41,7 +48,9 @@ console.groupEnd();
 
 console.group("Given an array with strings");
     console.assert("hola" === concatenate(["hola"]),"Then returns 'hola'");
+    console.debug(concatenate(["hola"]));
     console.assert("hola,que,tal" === concatenate(["hola","que","tal"]),"Then returns 'hola,que,tal'");
+    console.debug(concatenate(["hola","que","tal"]));
 console.groupEnd();
 
 console.group("Given an array with array elements");
