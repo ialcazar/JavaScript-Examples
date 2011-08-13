@@ -4,3 +4,4 @@ Contains some JavaScript arrays examples:
 
 - advancedConcatenator: Just a more advance solution
 - advancedConcatenatorECMASCRIPT5: Same solution without overwriting Array.prototype
+- trivialConcatenator: A trivial implementation 
