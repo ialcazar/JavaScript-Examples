@@ -1,0 +1,3 @@
+Contains some JavaScript arrays examples:
+
+- concatenator: Create a funciton that given an array, that contains strings and arrays, concatenate every String and split into commas. E.g. If array is ["hola", ["soy", ["juan", "fernandez"] ], "y", ["no", "tengo", ["dinero"] ] ] it will return "hola,soy,juan,fernandez,y,no,tengo,dinero"
