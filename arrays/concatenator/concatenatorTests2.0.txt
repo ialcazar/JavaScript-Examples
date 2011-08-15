@@ -1,4 +1,5 @@
 // TEST for execute into a Firebug console
+
 console.group("Anything is a param")
     console.assert("" == concatenate(3),"When param is 3, Then returns ''");
     console.assert("" == concatenate(3.2),"When param is 3.2, Then returns ''");
@@ -14,21 +15,20 @@ console.groupEnd();
 
 console.group("Array with strings");
     console.assert("hola" === concatenate(["hola"]),"When param is ['hola'], Then returns 'hola'");
-    console.debug(concatenate(["hola"]));
-    console.assert("hola,que,tal" === concatenate(["hola","que","tal"]),"When param is ["hola","que","tal"], Then returns 'hola,que,tal'");
-console.groupEnd();
+    console.assert("hola,que,tal" === concatenate(["hola","que","tal"]),"When param is ['hola','que','tal'], Then returns 'hola,que,tal'");
+	console.groupEnd();
 
 console.group("Array with array elements");
      console.assert("" === concatenate([[]]),"When param is [[]], Then returns '' ");
-     console.assert("hola" === concatenate([["hola"]]),"When param is [["hola"]], Then returns 'hola'");
-     console.assert("hola,soy,luis" === concatenate([["hola","soy","luis"]]),"When param is [["hola","soy","luis"]], Then returns 'hola,soy,luis'");
+     console.assert("hola" === concatenate([["hola"]]),"When param is [['hola']], Then returns 'hola'");
+     console.assert("hola,soy,luis" === concatenate([["hola","soy","luis"]]),"When param is [['hola','soy','luis']], Then returns 'hola,soy,luis'");
 console.groupEnd();
 
 console.group("Array with array and string elements");
-      console.assert("hola,soy,luis" === concatenate(["hola",["soy","luis"]]),"When param is ["hola",["soy","luis"]], Then returns 'hola,soy,luis'");
-      console.assert("hola,soy,luis,y,estoy,bien" === concatenate(["hola",["soy","luis"],"y","estoy","bien"]),"When param is  ["hola",["soy","luis"],"y","estoy","bien"], Then returns 'hola,soy,luis,y,estoy,bien'");
+      console.assert("hola,soy,luis" === concatenate(["hola",["soy","luis"]]),"When param is ['hola',['soy','luis']], Then returns 'hola,soy,luis'");
+      console.assert("hola,soy,luis,y,estoy,bien" === concatenate(["hola",["soy","luis"],"y","estoy","bien"]),"When param is  ['hola',['soy','luis'],'y','estoy','bien'], Then returns 'hola,soy,luis,y,estoy,bien'");
 console.groupEnd();
 
 console.group("Array with arrays of arrays and string elements");
-    console.assert("hola,soy,juan,fernandez,y,no,tengo,dinero" === concatenate(["hola", ["soy", ["juan", "fernandez"] ], "y", ["no", "tengo", ["dinero"] ] ]),"When param is ["hola", ["soy", ["juan", "fernandez"] ], "y", ["no", "tengo", ["dinero"] ] ], Then returns 'hola,soy,juan,fernandez,y,no,tengo,dinero'");
+    console.assert("hola,soy,juan,fernandez,y,no,tengo,dinero" === concatenate(["hola", ["soy", ["juan", "fernandez"] ], "y", ["no", "tengo", ["dinero"] ] ]),"When param is ['hola', ['soy', ['juan', 'fernandez'] ], 'y', ['no', 'tengo', ['dinero'] ] ], Then returns 'hola,soy,juan,fernandez,y,no,tengo,dinero'");
 console.groupEnd();

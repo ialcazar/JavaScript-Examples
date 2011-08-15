@@ -28,7 +28,7 @@ var concatenate = (function(){
     //Public
     return function (parameters){
         var result = "";
-        params = parameters && parameters.isArray()?parameters:[ ];
+        params = parameters && Array.isArray(parameters)?parameters:[ ];
     
         if(hasElements()){
             result = createString();
@@ -36,5 +36,3 @@ var concatenate = (function(){
         return result;
     }
 })();
-
-
