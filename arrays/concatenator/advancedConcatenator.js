@@ -1,7 +1,3 @@
-Object.prototype.isArray = function(){
-    return (this && typeof(this.push) === 'function' && typeof(this.pop) === 'function' && typeof(this.shift) === 'function');
-}
-
 var concatenate = (function(){
     //Private properties
     var params;
@@ -24,11 +20,20 @@ var concatenate = (function(){
     function isLastParam(p1){
         return (p1<params.length-1);
     }
+
+    function isArray(arr){
+       if(!Array.isArray){
+           Object.prototype.isArray = function(){
+                return Object.prototype.toString.call(arg) === '[object Array]';
+           }
+        }
+
+    }
     
     //Public
     return function (parameters){
         var result = "";
-        params = parameters && parameters.isArray()?parameters:[ ];
+        params = parameters && Array.isArray(parameters)?parameters:[ ];
     
         if(hasElements()){
             result = createString();
@@ -36,4 +41,3 @@ var concatenate = (function(){
         return result;
     }
 })();
-
