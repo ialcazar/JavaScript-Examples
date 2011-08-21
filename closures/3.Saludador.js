@@ -1,12 +1,12 @@
 function crearSaludo(param){
-    param = (typeof param == 'string') ?param :'';
+    param = (typeof param == 'string')?param :undefined;
     return function(){
         var result;
-        if (param !== ''){
-            result = "Hola "+ param;
-        }
+        if(typeof param != 'undefined')
+           result = "Hola "+ param;
+        
         return result;
-    }; 
+    };
 }
 
 console.group("Anything is a param")
@@ -21,6 +21,8 @@ console.groupEnd();
 
 
 console.group("A person's name")
+    var saludo = crearSaludo("");
+    console.assert("Hola " == saludo() ,"When param is '', Then returns 'Hola '");
     var saludo = crearSaludo("Pepe");
     console.assert("Hola Pepe" == saludo() ,"When param is 'Pepe', Then returns 'Hola Pepe'");
      var saludo = crearSaludo("Luis");
