@@ -1,0 +1,37 @@
+1. Herencia: Modelar mediante herencia prototípica figuras geométricas (circulo, cuadrado, elipse y rectángulo). Deben incluirse métodos que calculen el área, perímetro así como propiedades para posición y dimensiones. También debe incluir un método para "describir" la figura mediante la consola. La descripción debe incluir posición, dimensiones y tipo.
+
+2. Escribe una función que tome como primer argumento un array, como segundo argumento otra función, y construya un nuevo array aplicando la función argumento a cada uno de los elementos del array original. ¡Enhorabuena! has creado una implementación básica de map :)
+
+        Test: map([1,2,3,4],function(x){return x*x}) devolverá [1,4,9,16]
+
+3. Saludador: Crear una función que devuelva otra función que salude por la consola cada vez que se invoque. La primera función recibe por la consola el nombre de la persona a saludar, la función devuelta no tiene parámetros.
+
+        Test: saludo=crearSaludo("Pepe"); saludo() imprimirá en la consola Hola Pepe
+
+4. Saludador múltiple: Modificar la función anterior, ahora puede recibir un array de nombres y devuelve un array de funciones. Cada una de estas funciones saludará a la persona correspondiente según el orden del array.
+
+        Test: var saludos=crearSaludo(["Pepe", "María"]); saludos[0](); saludos[1]() imprimirá en la consola Hola Pepe y Hola María en líneas separadas
+
+5. Para solicitar al navegador que ejecute una función de forma diferida se utiliza la función setTimeout. Toma como argumentos la función a ejecutar y el tiempo (en milisegundos) que debe transcurrir antes de su invocación. Considera el bloque de código
+
+              var Autobot = function(nombre){
+                this.nombre = nombre;
+              }
+              Autobot.prototype.saludar = function() {
+                alert('Hola, me llamo '+this.nombre);
+              }
+              var optimus = new Autobot('Optimus Prime');
+
+        Primera parte (fácil): Sin añadir métodos a Autobot.prototype solicita que se ejecute el método saludar sobre optimus pasados 5 segundos.
+
+        Segunda parte (no tan fácil): Añade un método a Autobot.prototype que tome como argumento un tiempo en milisegundos y solicite la ejecución de saludar sobre el objeto pasados 5 segundos.
+
+        Restricción y pista para el futuro: no se puede utilizar Function.prototype.bind
+
+6.EJERCICIO AVANZADO: Añadir el método "memorizaParametro" a todas las funciones del sistema. Este método, aplicado sobre una función, recibe un parámetro y devuelve una función, que al ser invocada, sería equivalente a ejecutar la función original pero con el primer parámetro fijado a lo que se pasó al método memorizaParametro.
+
+    Test: var mensaje=function(a,b){console.log(a+":"+b);}; var mesajeHola=mensaje.memorizaParametro("Hola"); mensajeHola("Pepe"); imprimirá en la consola Hola:Pepe
+
+
+7.Realizar los ejercicios "Saludador" y "Saludador múltiple" utilizando el método "memorizaParametro" anteriormente implementado.
+Temas a estudiar
